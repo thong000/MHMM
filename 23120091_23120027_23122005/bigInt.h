@@ -76,6 +76,8 @@ public:
 
 };
 
+BigIntBinary modular_exponentiation(BigIntBinary a, BigIntBinary b, BigIntBinary n); // a^b % n
 BigIntBinary generate_private_key(const BigIntBinary& p);
+BigIntBinary generate_safe_prime(int bit_size);
 
 #endif
