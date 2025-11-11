@@ -1,4 +1,5 @@
-﻿#include "bigInt.h"
+﻿/*
+#include "bigInt.h"
 #include <algorithm>
 #include <random>
 #include <stdexcept>
@@ -281,7 +282,7 @@ void BigIntBinary::divide(const BigIntBinary& divisor, BigIntBinary& quotient, B
 
         // 2. "Hạ" bit tiếp theo của số bị chia vào
         if (this->get_bit(i)) {
-            remainder.limbs[0] |= 1; // Đặt bit thấp nhất là 1
+            remainder.set_bit(0); // Đặt bit thấp nhất là 1
         }
 
         // 3. So sánh và trừ
@@ -337,7 +338,16 @@ bool operator>=(const BigIntBinary& a, const BigIntBinary& b) {
 }
 
 
-
+BigIntBinary modular_exponentiation(BigIntBinary a, BigIntBinary b, BigIntBinary n) {
+    BigIntBinary res(1);
+    a = a % n;
+    while (!b.is_zero()) {
+        if (b.is_odd()) res = (res * a) % n;
+        a = (a * a) % n;
+        b.divide_by_2();
+    }
+    return res;
+}
 
 BigIntBinary generate_private_key(const BigIntBinary& p) {
 
@@ -397,3 +407,4 @@ BigIntBinary& BigIntBinary::operator=(const BigIntBinary& other) {
     limbs = other.limbs;
     return *this;
 }
+*/
